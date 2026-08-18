@@ -1,0 +1,51 @@
+{
+  "etl_version": "1.0.0",
+  "generated_at_utc": "2026-08-18T21:20:57.864878+00:00",
+  "stable_metrics": {
+    "raw_product_rows": 1373,
+    "raw_review_rows": 314029,
+    "product_id_map_rows": 1373,
+    "product_variant_rows": 1278,
+    "canonical_product_rows": 1268,
+    "unmatched_review_rows": 8298,
+    "matched_technical_duplicates_removed": 219059,
+    "canonical_review_rows": 60368,
+    "cross_review_id_merged_groups": 223,
+    "same_text_candidate_groups": 24,
+    "cross_product_reused_text_groups": 1069,
+    "cross_product_reused_review_rows": 2418,
+    "reviews_text_rows": 25797,
+    "product_document_rows": 1268
+  },
+  "assertions": {
+    "product_id_map_rows": true,
+    "product_variants_rows": true,
+    "product_variants_unique_item_id": true,
+    "products_canonical_rows": true,
+    "products_canonical_unique": true,
+    "products_brand_complete": true,
+    "products_category_complete": true,
+    "products_description_complete": true,
+    "unmatched_review_rows": true,
+    "reviews_canonical_rows": true,
+    "reviews_canonical_unique": true,
+    "reviews_have_known_product": true,
+    "reviews_text_rows": true,
+    "reviews_text_unique": true,
+    "reviews_text_nonempty": true,
+    "documents_unique": true,
+    "documents_have_known_product": true
+  },
+  "audit_outputs": {
+    "same_text_review_candidates": {
+      "path": "data/audit/same_text_review_candidates.csv",
+      "row_count": 24,
+      "purpose": "Groups with repeated normalized text for one canonical product that were not automatically merged."
+    },
+    "cross_product_reused_text": {
+      "path": "data/audit/cross_product_reused_text.csv",
+      "row_count": 1069,
+      "purpose": "Normalized review texts observed for more than one canonical product."
+    }
+  }
+}
